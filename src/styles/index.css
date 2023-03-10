@@ -1,0 +1,360 @@
+/********************** HEADER *********************/
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 1rem;
+
+    height: 50px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+
+    /* margin-bottom: 1rem; */
+
+    position: relative;
+}
+
+.hiddenClass {
+    display: none;
+}
+
+.registrationBtn {
+    background-color: var(--blue-500);
+    color: var(--white-fixed);
+
+    border: 1px solid var(--blue-500);
+
+    padding: 10px;
+
+    width: 110px;
+
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.loginBtn {
+    background-color: var(--white-fixed);
+    color: var(--blue-500);
+
+    border: 1px solid var(--blue-500);
+
+    padding: 10px;
+
+    width: 110px;
+
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.logo__container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    
+}
+
+.ball {
+    background-color: rgba(68, 0, 255, 0.50);
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 100%;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.menuBtn {
+    background-color: var(--white-fixed);
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    position: absolute;
+
+    right: 1rem;
+}
+
+.closeBtn {
+    background-color: var(--white-fixed);
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    position: absolute;
+
+    right: 1rem;
+}
+
+.options__buttons {
+    text-align: center;
+    position: fixed;
+
+    gap: 1rem;
+
+    background-color: var(--white-fixed);
+
+    width: 100%;
+    top: 50px;
+    z-index: 1;
+
+    padding: 15px;
+
+    box-shadow: 5px 10px 8px #f4f4f4;
+}
+
+/********************** MAIN *********************/
+
+
+.img__homepage {
+    display: none;
+}
+
+.cards__container {
+    width: 90vw;
+
+    margin: 0 auto;
+}
+
+.cards__title {
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 16px;
+    text-align: center;
+    
+    background-color: var(--blue-500);
+    color: var(--white-fixed);
+
+    position: relative;
+}
+/* 
+.cards__title>.closeFilter {
+    background-color:transparent;
+
+    position: absolute;
+
+    position: absolute;
+
+    right: 8px;
+
+    height: 80%;
+
+    filter: invert();
+}
+
+.arrow {
+    position: absolute;
+
+    right: 15px;
+
+    height: 50%;
+} */
+
+.cards {
+    box-shadow: 5px 10px 8px #f4f4f4;
+
+    height: 200px;
+
+    background-color: #f8f8f8;
+
+    display: flex;
+
+    gap: 1rem;
+
+    padding: 1rem;
+
+    overflow-x: scroll;
+
+}
+
+.filter {
+    text-align: center;
+    line-height: 150%;
+
+    background-color: var(--blue-500);
+    color: var(--white-fixed);
+
+}
+
+.filter>li:hover {
+    background-color: var(--white-fixed);
+    color: var(--black-fixed);
+}
+
+::-webkit-scrollbar {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.card {
+    height: 150px;
+    width: 200px;
+    min-width: 200px;
+
+    padding: 1rem;
+
+    border-bottom: 1px solid var(--blue-500);
+
+    background-color: var(--white-fixed);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.card__title {
+    font-weight: 700;
+
+    font-size: 18px;
+}
+
+.card__work-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.openingHours {
+    font-size: 14px;
+}
+
+.departament {
+    border: 1px solid var(--blue-500);
+    border-radius: 20px;
+
+    text-align: center;
+
+    padding: 5px 10px;
+
+    color: var(--blue-500);
+
+    font-size: 14px;
+
+    max-width: 80px;
+}
+
+
+@media (min-width: 769px) {
+
+    .menuBtn {
+        display: none;
+    }
+
+    header {
+        padding: 0 5vw;
+        height: 70px;
+
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+
+        padding: 0 1rem;
+
+        height: 50px;
+
+        border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+
+        /* margin-bottom: 1rem; */
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .ball {
+        width: 14px;
+        height: 14px;
+    }
+
+    .loginBtn {
+        background-color: var(--white-fixed);
+        color: var(--blue-500);
+
+        border: 1px solid var(--blue-500);
+
+        padding: 10px;
+
+        width: 110px;
+
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    /* ARRUMAR */
+    
+    .options__buttons{
+        position: static;
+   
+        width: 200px;
+
+        box-shadow: none;
+        background-color: transparent;
+
+        display: flex;
+        gap: 1rem;
+    }
+
+    .registrationBtn {
+        background-color: var(--blue-500);
+        color: var(--white-fixed);
+
+        border: 1px solid var(--blue-500);
+
+        padding: 10px;
+
+        width: 110px;
+
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    .ul__container {
+        width: 420px;
+    }
+
+    .img__homepage {
+        display: block;
+        width: 420px;
+    }
+
+    .cards__container {
+        width: 90vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 5rem;
+
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+
+        height: 500px;
+    }
+
+    .card {
+        width: 90%;
+        height: 80px;
+
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+    }
+
+}

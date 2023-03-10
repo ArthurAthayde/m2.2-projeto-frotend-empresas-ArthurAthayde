@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+        <link rel="stylesheet" href="../styles/reset.css">
+        <link rel="stylesheet" href="../styles/globalStyles.css">
+        <link rel="stylesheet" href="../styles/index.css">
+        <link rel="stylesheet" href="../styles/login.css">
+        <link rel="stylesheet" href="../styles/registration.css">
+
+        <title>Login</title>
+    </head>
+    
+    <body>
+        <header>
+            <div class="logo__container">
+                <span class="ball"></span>
+                <h1>Kenzie Empresas</h1>
+            </div>
+            <button class="menuBtn"><img src="../assets/menuBtn.svg" alt=""></button>
+            <button class="closeBtn hiddenClass"><img src="../assets/closeBtn.svg" alt=""></button>
+            <div class="options__buttons hiddenClass">
+                <button class="homeBtn">Home</button>
+                <button class="loginBtn">Login</button>
+            </div>
+    
+        </header>
+
+        <main> 
+    
+            <div class="login__container">
+                <h1 class="login__title">Cadastre-se</h1>
+                <input placeholder="Seu nome" type="text" name="name" id="name">
+                <input placeholder="Seu e-mail" type="text" name="login" id="login">
+                <input placeholder="Sua senha" type="text" name="password" id="password">
+                <select name="professionalLevel" id="professionalLevel">
+                    <option value="">Selecione o seu nível profissional</option>
+                    <option value="estágio">Estagiário</option>
+                    <option value="júnior">Junior</option>
+                    <option value="pleno">Pleno</option>
+                    <option value="senior">Senior</option>
+                </select>
+                <button id="registrationSubmit-btn" class="registrationBtn">Cadastre-se</button>
+                <button class="returnBtn">Retornar</button>
+            </div>
+    
+        </main>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script type="module" src="/src/scripts/registration.js"></script>
+    </body>
+</html>

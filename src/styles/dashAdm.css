@@ -1,0 +1,602 @@
+/* HEADER */
+
+header {
+    padding: 0 5vw;
+    height: 70px;
+
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+
+    padding: 0 1rem;
+
+    height: 50px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+
+    /* margin-bottom: 1rem; */
+}
+
+.logo__container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+}
+
+
+h1 {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.ball {
+    width: 14px;
+    height: 14px;
+
+    border-radius: 100%;
+
+    background-color: rgba(68, 0, 255, 0.50);
+}
+
+.logoutBtn {
+    background-color: var(--white-fixed);
+    color: var(--blue-500);
+
+    border: 1px solid var(--blue-500);
+
+    padding: 10px;
+
+    width: 110px;
+
+    font-weight: 700;
+    font-size: 16px;
+}
+
+
+
+/* BODY */
+
+main {
+    width: 70vw;
+
+    margin: 0 auto;
+}
+
+.departament__container {
+    margin-top: 4rem;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.departament__container-header {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    align-items: baseline;
+}
+
+.departament__container-header>select {
+    height: 20px;
+
+    width: 180px;
+
+    padding: 0 10px;
+
+    text-align: center;
+
+    border-radius: 10px;
+}
+
+.createCompanieBtn {
+    background-color: var(--blue-500);
+
+    color: var(--white-fixed);
+
+    border: none;
+
+    width: 110px;
+
+    padding: 8px;
+}
+
+.departament__container-body {
+    height: 200px;
+    width: 1000px;
+
+    margin-bottom: 2rem;
+
+    padding: 2rem;
+
+    background-color: #F8F8F8;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 2rem;
+
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0.4em;
+    height: 0.4em;
+
+    background-color: #F8F8F8;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--blue-500);
+}
+
+.departamentCard {
+    width: 45%;
+
+    background-color: var(--white-fixed);
+
+    height: 120px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: .5rem;
+
+    border-bottom: 1px solid var(--blue-500);
+}
+
+.departamentCard-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.departamentCard-info>h4,
+p,
+span {
+    margin: 0;
+    font-size: 14px;
+}
+
+.departament__Buttons {
+    align-items: center;
+    align-self: center;
+    display: flex;
+    justify-content: baseline;
+}
+
+.departament__Buttons>button {
+    background-color: transparent;
+    border: none;
+
+}
+
+img {
+    max-height: 36px;
+}
+
+
+.users__container-header {
+    text-align: center;
+}
+
+.users__container-body {
+
+    align-self: flex-start;
+
+    height: 200px;
+    width: 1000px;
+
+    padding: 2rem;
+
+    background-color: #F8F8F8;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 2rem;
+
+    overflow-y: scroll;
+}
+
+.userCard {
+    width: 45%;
+
+    background-color: var(--white-fixed);
+
+    height: 120px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: .5rem;
+
+    border-bottom: 1px solid var(--blue-500);
+}
+
+.userCard-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.userCard-info>h4,
+p,
+span {
+    margin: 0;
+    font-size: 14px;
+}
+
+.users__Buttons {
+    align-items: center;
+    align-self: center;
+    display: flex;
+    justify-content: baseline;
+}
+
+.users__Buttons>button {
+    background-color: transparent;
+    border: none;
+
+}
+
+/*****************************MODAL CRIAR DEPARTAMENTO****************************/
+
+.createDepartament__modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    width: 500px;
+    height: 400px;
+
+    padding: 1.5rem;
+
+    border: black solid 1px;
+
+    position: relative;
+}
+
+.closeDepartamentModal {
+    max-height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.createDepartament__modal>h2 {
+    font-size: 36px;
+    margin: 2rem 0 0 0;
+}
+
+.createDepartament__modal>input {
+    height: 2.5rem;
+    padding-left: 1rem;
+}
+
+.createDepartament__modal>select {
+    height: 2.5rem;
+    padding-left: 1rem;
+    color: rgba(0, 0, 0, 0.612);
+}
+
+.createDepartament__modal>button {
+    height: 2.5rem;
+
+    background-color: var(--blue-500);
+
+    color: var(--white-fixed);
+
+    border: solid 1px var(--blue-500);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+/*****************************MODAL EDITAR DEPARTAMENTO*********************************/
+
+.editDepartament__modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    width: 400px;
+    height: 300px;
+
+    padding: 1.5rem;
+
+    border: black solid 1px;
+
+    position: relative;
+}
+
+.editDepartament__modal>h2 {
+    font-size: 36px;
+    margin: 2rem 0 0 0;
+}
+
+.departamentEdit-modal {
+    height: 6rem;
+    font-family: 'Inter', sans-serif;
+    padding: 10px;
+
+}
+
+.editDepartament__modal>button {
+    height: 2.5rem;
+
+    background-color: var(--blue-500);
+
+    color: var(--white-fixed);
+
+    border: solid 1px var(--blue-500);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+/**************************MODAL EDITAR USER***************************/
+
+
+.editUser__modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 400px;
+    height: 250px;
+
+    padding: 1.5rem;
+
+    border: black solid 1px;
+
+    position: relative;
+}
+
+.closeDepartamentModal {
+    max-height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.editUser__modal>h2 {
+    font-size: 36px;
+    margin: 2rem 0 0 0;
+}
+
+.editUser__modal>select {
+    height: 2.5rem;
+    padding-left: 1rem;
+    color: rgba(0, 0, 0, 0.612);
+}
+
+.editUser__modal>button {
+    height: 2.5rem;
+
+    background-color: var(--blue-500);
+
+    color: var(--white-fixed);
+
+    border: solid 1px var(--blue-500);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/**************************MODAL DELETAR DEPARTAMENTO***************************/
+
+.deleteDepartament__modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 400px;
+    height: 150px;
+
+    padding: 50px;
+
+    border: black solid 1px;
+
+    position: relative;
+}
+
+.deleteDepartament__modal>h2 {
+    text-align: center;
+}
+
+.deleteDepartament__modal>button {
+    height: 2.5rem;
+
+    background-color: var(--green-500);
+
+    color: var(--white-fixed);
+
+    padding: 8px 0;
+
+    text-align: center;
+
+    border: solid 1px var(--green-500);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+/********************DELETE USER MODAL*********************/
+
+.deleteUser__modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 400px;
+    height: 150px;
+
+    padding: 50px;
+
+    border: black solid 1px;
+
+    position: relative;
+}
+
+.deleteUser__modal>h2 {
+    text-align: center;
+}
+
+.deleteUser__modal>button {
+    height: 2.5rem;
+
+    background-color: var(--green-500);
+
+    color: var(--white-fixed);
+
+    padding: 8px 0;
+
+    text-align: center;
+
+    border: solid 1px var(--green-500);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+/********************HIRE USER MODAL***********************/
+.hireUser__modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    width: 600px;
+    height: 400px;
+
+    padding: 1.5rem;
+
+    border: black solid 1px;
+
+    position: relative;
+}
+
+.hireUser-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hireUser__description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hireUser__description>p {
+    font-weight: 700;
+}
+
+.hireUser__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hireUser__form>select {
+    width: 320px;
+    height: 2.5rem;
+    padding-left: 1rem;
+    color: rgba(0, 0, 0, 0.612);
+    font-family: 'Inter', sans-serif;
+}
+
+.hireUser__form>button {
+    height: 2.5rem;
+    width: 100px;
+    align-self: flex-end;
+
+    background-color: var(--green-500);
+
+    color: var(--white-fixed);
+
+    padding: 8px 0;
+
+    text-align: center;
+
+    border: solid 1px var(--green-500);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.userList__modal{
+
+    height: 200px;
+    width: 100%;
+
+    padding: 2rem 0;
+    padding-left: 1rem;
+
+    background-color: #F8F8F8;
+
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+
+    gap: 2rem;
+
+}
+
+.userCard{
+    width: 200px;
+    min-width: 200px;
+
+    padding: 10px;
+}
+
+
+.userCard>button {
+    height: 2.5rem;
+    width: 100px;
+    align-self: center;
+
+    background-color: var(--white-fixed);
+
+    color: var(--red-500);
+
+    padding: 8px 0;
+
+    text-align: center;
+
+    border: solid 1px var(--red-500);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}

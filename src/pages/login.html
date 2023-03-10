@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="../styles/login.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo__container">
+            <span class="ball"></span>
+            <h1>Kenzie Empresas</h1>
+        </div>
+        <button class="menuBtn"><img src="../assets/menuBtn.svg" alt=""></button>
+        <button class="closeBtn hiddenClass"><img src="../assets/closeBtn.svg" alt=""></button>
+        <div class="options__buttons hiddenClass">
+            <button class="homeBtn">Home</button>
+            <button class="registrationBtn">Cadastre-se</button>
+        </div>
+
+    </header>
+
+    <main>
+
+
+        <div class="login__container">
+            <h1 class="login__title">Login</h1>
+            <p class="login__description">Preencha os campos para realizar login</p>
+            <input placeholder="Seu e-mail" class="loginEmail" type="text" name="login" id="login">
+            <input placeholder="Sua senha" class="loginPassword" type="text" name="password" id="password">
+            <button class="login__submit">Login</button>
+            <p class="or">ou</p>
+            <button class="registrationBtn">Cadastre-se</button>
+        </div>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="/src/scripts/login.js"></script>
+</body>
+
+</html>
