@@ -4,7 +4,7 @@ import { toast } from './toast.js'
 
 
 const baseUrl = 'http://localhost:6278';
-const token = JSON.parse(localStorage.getItem('@kenzieCompanies:user'));
+const token = localStorage.getItem('@kenzieCompany:token');
 const requestHeaders = {
   'Content-Type': 'application/json',
   Authorization: `Bearer ${token}`
@@ -12,11 +12,14 @@ const requestHeaders = {
 
 //  ------------- VALIDAR ROTA DO USUÁRIO (ADM OU USER) ----------------
 
-export async function userValidate() {
+export async function userValidate(token) {
   try {
     const response = await fetch(`${baseUrl}/auth/validate_user`, {
       method: 'GET',
-      headers: requestHeaders
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
     })
     const resJson = await response.json();
     return resJson;
@@ -126,7 +129,7 @@ export async function registerNewCompanie(companyBody) {
 
 // LISTAR TODOS OS FUNCIONÁRIOS CADASTRADOS
 
-export async function listAllRegistredUsers() {
+export async function listAllRegistredUsers(token) {
   try {
     const response = await fetch(`${baseUrl}/users`, {
       method: 'GET',
@@ -157,11 +160,14 @@ export async function listAllRegistredDepartamens() {
 
 // CRIAR NOVO DEPARTAMENTO
 
-export async function createNewDepartament(departamentBody) {
+export async function createNewDepartamentRequest(token, departamentBody) {
   try {
     const response = await fetch(`${baseUrl}/departments`, {
       method: 'POST',
-      headers: requestHeaders,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
       body: JSON.stringify(departamentBody)
     })
     const resJson = await response.json();
@@ -173,7 +179,7 @@ export async function createNewDepartament(departamentBody) {
 
 // LISTAR TODOS OS DEPARTAMENTOS DE UMA EMPRESA
 
-export async function listCompanyDepartaments(companyUuid) {
+export async function listCompanyDepartaments(companyUuid, token) {
   try {
     const response = await fetch(`${baseUrl}/departments/${companyUuid}`, {
       method: 'GET',
@@ -220,11 +226,14 @@ export async function dismissEmployee(employeeUuid) {
 
 // ATUALIZAR DESCRIÇÃO DE UM DEPARTAMENTO
 
-export async function patchDepartamentDescription(DepartamentDescription) {
+export async function patchDepartamentDescription(DepartamentDescription, id, token) {
   try {
-    const response = await fetch(`${baseUrl}/departments/${DepartamentDescription}`, {
+    const response = await fetch(`${baseUrl}/departments/${id}`, {
       method: 'PATCH',
-      headers: requestHeaders,
+      headers: {  
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
       body: JSON.stringify(DepartamentDescription)
     })
     const resJson = await response.json();
@@ -236,11 +245,14 @@ export async function patchDepartamentDescription(DepartamentDescription) {
 
 // DELETAR UM DEPARTAMENTO
 
-export async function deleteDepartament(departamentUuid) {
+export async function deleteDepartamentRequest(departamentUuid, token) {
   try {
     const reponse = await fetch(`${baseUrl}/departments/${departamentUuid}`, {
       method: 'DELETE',
-      headers: requestHeaders
+      headers: {  
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
     })
     const resJson = await reponse.json();
     return resJson
@@ -266,11 +278,14 @@ export async function outOfWork() {
 
 // ATUALIZAR INFORMAÇÕES DE USUÁRIO
 
-export async function userUpdate(userUuid, updatedBody) {
+export async function userUpdate(userUuid, updatedBody, token) {
   try {
     const reponse = await fetch(`${baseUrl}/admin/update_user/${userUuid}`, {
       method: 'PATCH',
-      headers: requestHeaders,
+      headers: {  
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
       body: JSON.stringify(updatedBody)
     })
     const resJson = await reponse.json();
@@ -282,13 +297,16 @@ export async function userUpdate(userUuid, updatedBody) {
 
 // DELETAR UM USUÁRIO
 
-export async function deleteUser(userUuid) {
+export async function deleteUser(userUuid, token) {
   try {
     const response = await fetch(`${baseUrl}/admin/delete_user/${userUuid}`, {
       method: 'DELETE',
-      headers: requestHeaders
+      headers: {  
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
     })
-    const resJson = await reponse.json();
+    const resJson = await response.json();
     return resJson
   } catch (err) {
     console.log(err);
@@ -300,11 +318,14 @@ export async function deleteUser(userUuid) {
 
 // PEGAR INFORMAÇÕES DE USUÁRIO LOGADO
 
-export async function getUserInfo() {
+export async function getUserInfoRequest(token) {
   try {
     const reponse = await fetch(`${baseUrl}/users/profile`, {
       method: 'GET',
-      headers: requestHeaders
+      headers: {  
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
     })
     const resJson = await reponse.json();
     return resJson
@@ -322,7 +343,7 @@ export async function listDepartamentEmployees() {
       method: 'GET',
       headers: requestHeaders
     })
-    const resJson = await reponse.json();
+    const resJson = await response.json();
     return resJson
   } catch (err) {
     console.log(err);
@@ -337,7 +358,7 @@ export async function listUserCompanyDepartaments() {
       method: 'GET',
       headers: requestHeaders
     })
-    const resJson = await reponse.json();
+    const resJson = await response.json();
     return resJson
   } catch (err) {
     console.log(err);
@@ -353,12 +374,34 @@ export async function patchUserInfo(userBody) {
       headers: requestHeaders,
       body: JSON.stringify(userBody)
     })
-    const resJson = await reponse.json();
+    const resJson = await response.json();
     return resJson
   } catch (err) {
     console.log(err);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

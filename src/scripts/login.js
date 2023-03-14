@@ -1,5 +1,7 @@
 // import { replaceHome, replaceRegistration } from "./header.js";
 
+import { userLogin, userValidate } from "./requests.js";
+
 
 
 // TOAST
@@ -33,7 +35,8 @@ function eventReplaceRegistration() {
     const buttonRegistration = document.querySelector(".registrationBtn");
 
     buttonRegistration.addEventListener("click", () => {
-        window.location.replace('./registation.html')});
+        window.location.replace('./registation.html')
+    });
 }
 
 eventReplaceHome();
@@ -72,89 +75,43 @@ openHomePageMenu();
 /**************************LÓGICA LOGIN*********************************/
 
 
+async function typeOfUserValidate() {
+    const token = localStorage.getItem('@kenzieCompany:token');
+    const user = await userValidate(token);
+
+    if (user.is_admin === true) {
+        window.location.replace('./dashboardAdm.html');
+    } else if (!user.is_admin){
+        window.location.replace('./dashboardUser.html');
+    }
+}
 
 
-// TIPO DE USUÁRIO - REPLACE ADM OU USER
+function login() {
+    const submitBtn = document.querySelector('.login__submit');
 
-async function getLogin(token) {
+    submitBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
 
-    const typeOfUser = await fetch(`http://localhost:6278/auth/validate_user`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`
+        const emailValue = document.querySelector('.loginEmail').value;
+        const passwordValue = document.querySelector('.loginPassword').value;
+
+        const userData = {
+            email: emailValue,
+            password: passwordValue
+        };
+
+        const loginRequest = await userLogin(userData);
+        localStorage.setItem('@kenzieCompany:token', loginRequest.token);
+
+        if (loginRequest.token) {
+            toast('Login realizado com sucesso, bem vindo', '#4BA036');
+            setTimeout(() => {
+                typeOfUserValidate();
+            }, 2500);
+        } else {
+            toast('Erro no login, favor verificar os dados', '#CE4646');
         }
     })
-        .then((res) => res.json())
-        .then((res) => replaceLogin(res.is_admin))
-        .catch((error) => console.log(error));
-
-    return typeOfUser;
 }
-
-
-// REPLACE LOGIN
-
-function replaceLogin(user) {
-    if (user === true) {
-        toast('Login realizado com sucesso, bem vindo ADM', '#4BA036');
-        setTimeout(() => {
-            window.location.replace("../pages/dashboardAdm.html");
-        }, 2500);
-
-    } else {
-        toast('Login realizado com sucesso, bem vindo', '#4BA036');
-        setTimeout(() => {
-            window.location.replace("../pages/dashboardUser.html");
-        }, 2500);
-    }
-}
-
-
-function loginContainer() {
-    const emailLogin = document.querySelector('.loginEmail');
-    const passwordLogin = document.querySelector('.loginPassword');
-    const loginSubmitBtn = document.querySelector('.login__submit');
-
-    loginSubmitBtn.addEventListener('click', async (event) => {
-        event.preventDefault();
-
-        let loginData = {
-            email: emailLogin.value,
-            password: passwordLogin.value
-        };
-        await requestLogin(loginData)
-    })
-}
-
-
-//REQUESTS DO LOGIN - (estou tendo problema de importação)
-
-async function requestLogin(loginData) {
-    const loginRequest = await fetch(`http://localhost:6278/auth/login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(loginData)
-    })
-    const loginDataJson = await loginRequest.json();
-
-    if (loginRequest.ok) {
-        localStorage.setItem(
-            "@kenzieCompanies:user",
-            loginDataJson.token
-        );
-        setTimeout(() => {
-            window.location.replace("../pages/dashboardAdm.html");
-        }, 2500);
-        getLogin(loginDataJson.token);
-    } else {
-        setTimeout(() => {
-            toast('Erro no login, favor verificar os dados', '#CE4646');
-        }, 500);
-    }
-}
-
-
-loginContainer()
+login()

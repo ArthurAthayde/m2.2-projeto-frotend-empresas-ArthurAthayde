@@ -1,0 +1,118 @@
+header{
+    border: none;
+
+    margin-bottom: 2rem;
+}
+
+.userHeader{
+    width: 100%;
+    height: 4rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    
+    border: solid 1px rgba(0, 0, 0, 0.3);
+
+    position: relative;
+
+    padding: 1rem;
+}
+
+.userHeader > h2{
+font-weight: 600;
+font-size: 1.1rem;
+}
+
+.userInfos{
+    width: 100%;
+    display: flex;
+    gap: 5rem;
+}
+
+.editUserData{
+position: absolute;
+right: 2rem;
+top:1.8rem;
+}
+
+.editPerfil__container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 300px;
+    height: 250px;
+
+    padding: 1.5rem;
+
+    border: black solid 1px;
+
+    position: relative;
+
+    border: none;
+}
+
+.closeEditPerfilBtn{
+    max-height: 30px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.editPerfil__container > h2{
+    font-size: 36px;
+        font-weight: 600;
+}
+
+.editPerfil__container > input{
+    height: 2.5rem;
+    padding-left: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.312);
+}
+
+.editPerfil__submitBtn{
+    height: 2.5rem;
+    width: 100%;
+    align-self: center;
+
+    background-color: var(--blue-500);
+
+    color: var(--white-fixed);
+
+    border: solid 1px var(--blue-500);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+    
+}
+
+.userCoworkers__container{
+    width: 100%;
+    height: 20rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    
+    border: solid 1px rgba(0, 0, 0, 0.3);
+
+    position: relative;
+
+    padding: 1rem;
+
+    margin-top: 3rem;
+}
+
+.userCoworkers__container > h3 {
+font-size: 2rem;
+
+font-weight: 600;
+
+align-self: center;
+}

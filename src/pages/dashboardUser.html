@@ -4,9 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/dashAdm.css">
+    <link rel="stylesheet" href="../styles/dashUser.css">
     <title>Document</title>
 </head>
 <body>
-    <p>DASHBOARD USER</p>
+    <header>
+        <div class="logo__container">
+            <span class="ball"></span>
+            <h1>Kenzie Empresas</h1>
+        </div>
+        <div class="options__buttons hiddenClass">
+            <button class="logoutBtn">Logout</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="userHeader">
+            <!-- <h2>USERNAME</h2>
+            <div class="userInfos">
+                <p class="userMail">Email:meuemail@mail.com</p>
+                <p class="userLevel">Pleno</p>
+                <p class="userWorkPlace">Home Office</p>
+            </div>
+            <img src="../assets/bluePencil.svg" alt="" srcset="" class="editUserData"> -->
+        </div>
+
+        <div class="userCoworkers__container">
+            <h3>Você ainda não foi contratado</h3>
+        </div>
+    </main>
+
+    <dialog class="editPerfil__modal">
+        <div class="editPerfil__container">
+            <h2>Editar Perfil</h2>
+            <img src="../assets/closeBtn.svg" class="closeEditPerfilBtn" alt="">
+            <input type="text" placeholder="Seu nome" class="editPerfil__name-input">
+            <input type="text" placeholder="Seu e-mail" class="editPerfil__email-input">
+            <input type="password" placeholder="Sua senha" class="editPerfil__password-input">
+            <button class="editPerfil__submitBtn">Editar Perfil</button>
+        </div>
+    </dialog>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="../scripts/dashUser.js"></script>
 </body>
 </html>

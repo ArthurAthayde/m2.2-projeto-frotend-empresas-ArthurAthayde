@@ -1,5 +1,5 @@
 import { replaceLogin, replaceRegistration } from "./header.js";
-import { getUser, login } from "./requests.js";
+import { userValidate } from "./requests.js";
 
 
 // BOTÕES DO HEADER - funcionamento
@@ -48,7 +48,7 @@ async function getAllCompanies(){
     return companies;
 }
 
-getAllCompanies()
+
 
 // CRIAR CARDS DAS EMPRESAS PARA A HOME PAGE
 
@@ -103,4 +103,19 @@ function openHomePageMenu() {
     })
 }
 
-openHomePageMenu()
+async function authentication(){
+    // const token = localStorage.getItem('@kenzieCompany:token');
+    const user = await userValidate()
+    if(user.is_admin === false){
+        window.location.replace('./src/pages/dashboardUser.html');
+    } else if (user.is_admin === true){
+        window.location.replace('./src/pages/dashboardAdm.html');
+    } else if (user.is_admin === null){
+        window.location.replace('/');  
+    }
+}
+
+
+authentication();
+openHomePageMenu();
+getAllCompanies();

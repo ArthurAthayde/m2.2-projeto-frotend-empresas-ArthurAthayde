@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="../styles/globalStyles.css">
     <link rel="stylesheet" href="../styles/dashAdm.css">
     <title>Document</title>
@@ -26,141 +27,107 @@
         <div class="departament__container">
             <div class="departament__container-header">
                 <h3>Departamentos</h3>
-                <select name="Companies" id="selectCompanier">
+                <select name="Companies" class="selectCompany" name="" id="">
                     <option value="">Selecionar empresa</option>
                 </select>
                 <button class="createCompanieBtn">+ Criar</button>
             </div>
 
 
-            <div class="departament__container-body">
-                <div class="departamentCard">
-                    <div class="departamentCard-info">
-                        <h4>Departament name</h4>
-                        <p>Departament description</p>
-                        <span>Company name</span>
-                    </div>
+            <ul class="departament__container-body">
 
-                    <div class="departament__Buttons">
-                        <button class="showDepartament"><img src="../assets/eye.svg" alt="" srcset=""></button>
-                        <button class="editDepartament"><img src="../assets/pencil.svg" alt="" srcset=""></button>
-                        <button class="deleteDepartament"><img src="../assets/trash.svg" alt="" srcset=""></button>
-                    </div>
-                </div>
-
-            </div>
+            </ul>
 
 
             <div class="users__container">
                 <div class="users__container-header">
                     <h3>Usuários Cadastrados</h3>
                 </div>
-                <div class="users__container-body">
-
-                    <div class="userCard">
-                        <div class="userCard-info">
-                            <h4>Username</h4>
-                            <p>Pleno</p>
-                            <span>Company name</span>
-                        </div>
-
-                        <div class="users__Buttons">
-                            <button class="editUser"><img src="../assets/bluePencil.svg" alt="" srcset=""></button>
-                            <button class="deleteUser"><img src="../assets/trash.svg" alt="" srcset=""></button>
-                        </div>
-                    </div>
-                    <div class="userCard">
-                        <div class="userCard-info">
-                            <h4>Username</h4>
-                            <p>Pleno</p>
-                            <span>Company name</span>
-                        </div>
-
-                        <div class="users__Buttons">
-                            <button class="editUser"><img src="../assets/bluePencil.svg" alt="" srcset=""></button>
-                            <button class="deleteUser"><img src="../assets/trash.svg" alt="" srcset=""></button>
-                        </div>
-                    </div>
-                    <div class="userCard">
-                        <div class="userCard-info">
-                            <h4>Username</h4>
-                            <p>Pleno</p>
-                            <span>Company name</span>
-                        </div>
-
-                        <div class="users__Buttons">
-                            <button class="editUser"><img src="../assets/bluePencil.svg" alt="" srcset=""></button>
-                            <button class="deleteUser"><img src="../assets/trash.svg" alt="" srcset=""></button>
-                        </div>
-                    </div>
-
-                </div>
+                <ul class="users__container-body">
+                </ul>
             </div>
-        </div>
 
 
-        <!-- <article class="createDepartament__modal">
-            <img src="../assets/closeBtn.svg" class="closeDepartamentModal" alt="">
-            <h2>Criar Departamento</h2>
-            <input class="departamentName-modal" type="text" placeholder="Nome do departamento">
-            <input class="departamentDescription-modal" type="text" placeholder="Descrição">
-            <select class="selectCompanie-modal" name="selectCompanie-modal" id="">
-                <option value="">Selecionar empresa</option>
-            </select>
-            <button class="createDepartamentBtn-modal">Criar o departamento</button>
-        </article> -->
-
-        <!-- <article class="editDepartament__modal">
-            <img src="../assets/closeBtn.svg" class="closeDepartamentModal" alt="">
-            <h2>Editar Departamento</h2>
-            <textarea class="departamentEdit-modal" placeholder="Valores anteriores da descrição" cols="30" rows="10"></textarea>
-            <button class="editDepartamentBtn-modal">Salvar alterações</button>
-        </article> -->
-
-
-        <!-- <article class="editUser__modal">
-            <img src="../assets/closeBtn.svg" class="closeDepartamentModal" alt="">
-            <h2>Editar usuário</h2>
-            <select class="selectUserModality-modal" name="selectUserModality-modal" id="">
-                <option value="">Selecione a modalidade de trabalho</option>
-            </select>
-            <select class="selectUserLevel-modal" name="selectUserLevel-modal" id="">
-                <option value="">Selecionar nível profissional</option>
-            </select>
-            <button class="editUserBtn-modal">Editar</button>
-        </article> -->
-
-        <!-- <article class="deleteDepartament__modal">
-            <img src="../assets/closeBtn.svg" class="closeDepartamentModal" alt="">
-            <h2>Realmente deseja deletar o Departamento NOME e demitir seus funcionários?</h2>
-
-            <button class="deleteDepartamentBtn-modal">Confirmar</button>
-        </article> -->
-
-        <!-- <article class="deleteUser__modal">
-            <img src="../assets/closeBtn.svg" class="closeDepartamentModal" alt="">
-            <h2>Realmente deseja deletar o Departamento NOME e demitir seus funcionários?</h2>
-
-            <button class="deleteUserBtn-modal">Confirmar</button>
-        </article> -->
-
-        <!-- <article class="hireUser__modal">
-            <h2>Nome do departamento</h2>
-            <img src="../assets/closeBtn.svg" class="closeDepartamentModal" alt="">
-            <div class="hireUser-header">
-                <div class="hireUser__description">
-                    <p>Descrição do departamento</p>
-                    <span>Empresa pertencente</span>
-                </div>
-                <div class="hireUser__form">
-                    <select id="hireUser__select">
-                        <option value="">Selecionar usuário</option>
+            <dialog class="createDepartament__modal">
+                <div class="createDepartament__modal-container">
+                    <img src="../assets/closeBtn.svg" class="closeDepartamentModal" alt="">
+                    <h2>Criar Departamento</h2>
+                    <input class="departamentName-modal" type="text" placeholder="Nome do departamento">
+                    <input class="departamentDescription-modal" type="text" placeholder="Descrição">
+                    <select class="selectCompanie-modal" name="selectCompanie-modal" id="">
+                        <option value="">Selecionar empresa</option>
                     </select>
-                    <button class="hireUserBtn">Contratar</button>
-                </div>
-            </div>
+                    <button class="createDepartamentBtn-modal">Criar o departamento</button>
+            </dialog>
 
-            <div class="userList__modal">
+            <dialog class="editDepartament__modal">
+                <div class="editDepartament__modal-container">
+                    <img src="../assets/closeBtn.svg" class="closeDepartamentModal" alt="" id="closeBtnModal">
+                    <h2>Editar Departamento</h2>
+                    <textarea class="departamentEdit-modal" placeholder="Valores anteriores da descrição" cols="30"
+                        rows="10"></textarea>
+                    <button class="editDepartamentBtn-modal">Salvar alterações</button>
+
+                </div>
+            </dialog>
+
+
+            <dialog class="editUser__modal">
+                <div class="editUser__modal-container">
+                    <img src="../assets/closeBtn.svg" id="closeEditUserModal" alt="">
+                    <h2>Editar usuário</h2>
+                    <select class="selectUserModality-modal" name="selectUserModality-modal" id="">
+                        <option value="">Selecione a modalidade de trabalho</option>
+                        <option value="presencial">Presencial</option>
+                        <option value="home office">Home Office</option>
+                        <option value="híbrido">Híbrido</option>
+                    </select>
+                    <select class="selectUserLevel-modal" name="selectUserLevel-modal" id="">
+                        <option value="">Selecionar nível profissional</option>
+                        <option value="estágio">Estágio</option>
+                        <option value="júnior">Júnior</option>
+                        <option value="pleno">Pleno</option>
+                        <option value="sênior">Sênior</option>
+                    </select>
+                    <button class="editUserBtn-modal">Editar</button>
+            </dialog>
+
+            <dialog class="deleteDepartament__modal">
+                <div class="deleteDepartament__modal-container">
+                    <img src="../assets/closeBtn.svg" id="closeDepartamentModal" alt="">
+                    <h2 class="deleteDepartament__message"></h2>
+
+                    <button class="deleteDepartamentBtn-modal">Confirmar</button>
+                </div>
+            </dialog>
+
+            <dialog class="deleteUser__modal">
+                <div class="deleteUser__modal-container">
+                    <img src="../assets/closeBtn.svg" class="closeDepartamentModal-delete" alt="">
+                    <h2 class="textDelete"></h2>
+
+                    <button class="deleteUserBtn-modal">Deletar</button>
+                </div>
+            </dialog>
+
+            <dialog class="hireUser__modal">
+                <div class="hireUser__modal-container">
+                    <h2>Nome do departamento</h2>
+                    <img src="../assets/closeBtn.svg" class="closeDepartamentModal" alt="">
+                    <div class="hireUser-header">
+                        <div class="hireUser__description">
+                            <p>Descrição do departamento</p>
+                            <span>Empresa pertencente</span>
+                        </div>
+                        <div class="hireUser__form">
+                            <select id="hireUser__select">
+                                <option value="">Selecionar usuário</option>
+                            </select>
+                            <button class="hireUserBtn">Contratar</button>
+                        </div>
+                    </div>
+
+                    <div class="userList__modal">
                         <div class="userCard">
                             <div class="userCard-info">
                                 <h4>Username</h4>
@@ -172,10 +139,15 @@
                     </div>
                 </div>
 
-            </div>
-        </article> -->
+        </div>
+
+        </div>
+        </dialog>
 
     </main>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="../scripts/dashAdm.js"></script>
 </body>
 
 </html>
