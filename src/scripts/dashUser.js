@@ -11,6 +11,16 @@ function logout() {
     })
 }
 
+
+function authorization(){
+    const token = localStorage.getItem('@kenzieCompany:token');
+
+    if(!token){
+        window.location.replace('../../index.html')
+    }
+}
+authorization()
+
 export async function getUserInfo() {
     const token = localStorage.getItem('@kenzieCompany:token');
     const userInfo = await getUserInfoRequest(token);
@@ -89,14 +99,15 @@ async function editUserPainelInfo() {
 }
 
 
-async function getCompanyInfo(){
-    const coworkers = await listDepartamentEmployees();
-    const allDepartamentsUser = await listUserCompanyDepartaments();
+// async function getCompanyInfo(){
+//     const coworkers = await listDepartamentEmployees();
+//     const allDepartamentsUser = await listUserCompanyDepartaments();
 
-    renderCompanyInfo(allDepartamentsUser, coworkers[0])
+//     renderCompanyInfo(allDepartamentsUser, coworkers[0])
    
-}
+// }
 
-getCompanyInfo()
+// getCompanyInfo()
+
 getUserInfo()
 logout()

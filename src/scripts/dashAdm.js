@@ -9,6 +9,15 @@ async function authentication() {
     }
 }
 
+function authorization(){
+    const token = localStorage.getItem('@kenzieCompany:token');
+
+    if(!token){
+        window.location.replace('../../index.html')
+    }
+}
+authorization()
+
 function logout() {
 
     const logoutBtn = document.querySelector('.logoutBtn');
